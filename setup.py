@@ -3,6 +3,7 @@ This is a library calculating time taken by any peace of code.
 '''
 
 import sys
+
 try:
     from setuptools import setup
 except ImportError:

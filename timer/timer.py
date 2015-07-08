@@ -14,9 +14,9 @@ MINUTES = 'min'
 
 class TimeMetric(enum.Enum):
     sec = 1
-    nsec = 1 / pow(10, 9)
-    msec = 1 / pow(10, 3)
-    min = 1 * 60
+    nsec = 1 * pow(10, 9)
+    msec = 1 * pow(10, 3)
+    min = 1 / 60
 
 
 def get_time():
@@ -29,7 +29,7 @@ class Timer(object):
     """
     def __init__(self, time_in='sec'):
         """
-        @param time_in string: This defines the time metric min/sec/msec/nsec.
+        :param time_in string: This defines the time metric min/sec/msec/nsec.
         """
         self.time_in = time_in
         self.start_time = None

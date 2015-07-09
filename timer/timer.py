@@ -11,6 +11,7 @@ MILLI_SECONDS = 'msec'
 SECONDS = 'sec'
 MINUTES = 'min'
 
+__all__ = ['Timer']
 
 class TimeMetric(enum.Enum):
     sec = 1
@@ -21,6 +22,7 @@ class TimeMetric(enum.Enum):
 
 def get_time():
     return time.time()
+
 
 
 class Timer(object):
@@ -34,6 +36,7 @@ class Timer(object):
         self.time_in = time_in
         self.start_time = None
         self.end_time = None
+        self.time_taken = None
 
     def __time_in_metric(self):
         return get_time() * float(TimeMetric[self.time_in].value)
@@ -43,4 +46,5 @@ class Timer(object):
 
     def __exit__(self, exc_type, exc_value, traceback):
         self.end_time = self.__time_in_metric()
-        print self.end_time - self.start_time, self.time_in
+        self.time_taken = self.end_time - self.start_time
+        print str(self.time_taken) + ' ' + self.time_in
